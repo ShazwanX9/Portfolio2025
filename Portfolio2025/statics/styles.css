@@ -818,7 +818,7 @@ nav {
 
 .project-card {
     flex: 1;
-    min-width: 360px;
+    min-width: 30%;
     text-decoration: none;
     color: inherit;
     cursor: pointer;
@@ -1769,3 +1769,12 @@ section h2::after {
     background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
     border-radius: 3px;
 } 
+
+@media (max-width: 768px) {
+    .parallax-bg {
+        background-attachment: scroll; /* Disable parallax on mobile */
+    }
+    .splash-screen {
+        display: none; /* Hide splash screen on mobile */
+    }
+}

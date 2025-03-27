@@ -4,56 +4,64 @@ const mainContent = document.querySelector('main');
 const header = document.querySelector('header');
 const footer = document.querySelector('footer');
 
-// Show main content immediately if no splash screen
-if (!splashScreen) {
-    mainContent.classList.add('visible');
-    header.classList.add('visible');
-    footer.classList.add('visible');
-} else {
-    const video = splashScreen.querySelector('video');
-    const soundToggle = splashScreen.querySelector('.sound-toggle');
-
-    // Initialize video with muted state (browser policy)
-    video.muted = true;
-
-    // Function to show main content
-    const showMainContent = () => {
-        splashScreen.classList.add('fade-out');
+// Check if the screen width is greater than 768px (desktop/tablet)
+if (window.innerWidth > 768) {
+    // Show main content immediately if no splash screen
+    if (!splashScreen) {
         mainContent.classList.add('visible');
         header.classList.add('visible');
         footer.classList.add('visible');
-        
-        // Remove splash screen after fade out
-        setTimeout(() => {
-            splashScreen.style.display = 'none';
-        }, 500);
-    };
+    } else {
+        const video = splashScreen.querySelector('video');
+        const soundToggle = splashScreen.querySelector('.sound-toggle');
 
-    // Sound toggle functionality
-    soundToggle.addEventListener('click', () => {
-        video.muted = !video.muted;
-        soundToggle.classList.toggle('muted');
-        soundToggle.querySelector('i').className = video.muted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
-    });
+        // Initialize video with muted state (browser policy)
+        video.muted = true;
 
-    // Video event handlers
-    video.addEventListener('loadeddata', () => {
-        console.log('Video loaded successfully');
-        // Ensure video is playing
-        video.play().catch(error => {
-            console.error('Error playing video:', error);
+        // Function to show main content
+        const showMainContent = () => {
+            splashScreen.classList.add('fade-out');
+            mainContent.classList.add('visible');
+            header.classList.add('visible');
+            footer.classList.add('visible');
+
+            // Remove splash screen after fade out
+            setTimeout(() => {
+                splashScreen.style.display = 'none';
+            }, 500);
+        };
+
+        // Sound toggle functionality
+        soundToggle.addEventListener('click', () => {
+            video.muted = !video.muted;
+            soundToggle.classList.toggle('muted');
+            soundToggle.querySelector('i').className = video.muted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
         });
-    });
 
-    video.addEventListener('error', (e) => {
-        console.error('Video error:', e);
-        showMainContent();
-    });
+        // Video event handlers
+        video.addEventListener('loadeddata', () => {
+            console.log('Video loaded successfully');
+            // Ensure video is playing
+            video.play().catch(error => {
+                console.error('Error playing video:', error);
+            });
+        });
 
-    video.addEventListener('ended', () => {
-        console.log('Video ended');
-        showMainContent();
-    });
+        video.addEventListener('error', (e) => {
+            console.error('Video error:', e);
+            showMainContent();
+        });
+
+        video.addEventListener('ended', () => {
+            console.log('Video ended');
+            showMainContent();
+        });
+    }
+} else {
+    // If on mobile, show the main content directly without splash screen
+    mainContent.classList.add('visible');
+    header.classList.add('visible');
+    footer.classList.add('visible');
 }
 
 // Mobile Navigation
@@ -65,7 +73,7 @@ const navLinks = document.querySelectorAll('.nav-links li');
 burger.addEventListener('click', () => {
     // Toggle Nav
     nav.classList.toggle('active');
-    
+
     // Animate Links
     navLinks.forEach((link, index) => {
         if (link.style.animation) {
@@ -74,7 +82,7 @@ burger.addEventListener('click', () => {
             link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
         }
     });
-    
+
     // Burger Animation
     burger.classList.toggle('toggle');
 });
@@ -106,12 +114,12 @@ let lastScroll = 0;
 window.addEventListener('scroll', () => {
     const header = document.querySelector('header');
     const currentScroll = window.pageYOffset;
-    
+
     if (currentScroll <= 0) {
         header.classList.remove('scroll-up');
         return;
     }
-    
+
     if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
         // Scroll Down
         header.classList.remove('scroll-up');
@@ -187,62 +195,64 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Cursor Effects
-const cursor = document.createElement('div');
-cursor.classList.add('custom-cursor');
-document.body.appendChild(cursor);
+if (window.innerWidth > 768) {
+    // Cursor Effects
+    const cursor = document.createElement('div');
+    cursor.classList.add('custom-cursor');
+    document.body.appendChild(cursor);
 
-// Image loading handler
-document.querySelectorAll('img').forEach(img => {
-    // For already loaded images
-    if (img.complete) {
-        img.classList.add('loaded');
+    // Image loading handler
+    document.querySelectorAll('img').forEach(img => {
+        // For already loaded images
+        if (img.complete) {
+            img.classList.add('loaded');
+        }
+        // For images still loading
+        img.addEventListener('load', () => {
+            img.classList.add('loaded');
+        });
+        // For images that fail to load
+        img.addEventListener('error', () => {
+            console.error('Failed to load image:', img.src);
+        });
+    });
+
+    // Smooth cursor movement
+    let cursorX = 0;
+    let cursorY = 0;
+    let currentX = 0;
+    let currentY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+        cursorX = e.clientX;
+        cursorY = e.clientY;
+    });
+
+    function updateCursor() {
+        const ease = 0.15;
+
+        currentX += (cursorX - currentX) * ease;
+        currentY += (cursorY - currentY) * ease;
+
+        cursor.style.left = `${currentX}px`;
+        cursor.style.top = `${currentY}px`;
+
+        requestAnimationFrame(updateCursor);
     }
-    // For images still loading
-    img.addEventListener('load', () => {
-        img.classList.add('loaded');
+    updateCursor();
+
+    // Cursor interaction states
+    const interactiveElements = document.querySelectorAll('a, button, .project-card, .contact-item');
+    interactiveElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            cursor.classList.add('hover');
+        });
+
+        element.addEventListener('mouseleave', () => {
+            cursor.classList.remove('hover');
+        });
     });
-    // For images that fail to load
-    img.addEventListener('error', () => {
-        console.error('Failed to load image:', img.src);
-    });
-});
-
-// Smooth cursor movement
-let cursorX = 0;
-let cursorY = 0;
-let currentX = 0;
-let currentY = 0;
-
-document.addEventListener('mousemove', (e) => {
-    cursorX = e.clientX;
-    cursorY = e.clientY;
-});
-
-function updateCursor() {
-    const ease = 0.15;
-    
-    currentX += (cursorX - currentX) * ease;
-    currentY += (cursorY - currentY) * ease;
-    
-    cursor.style.left = `${currentX}px`;
-    cursor.style.top = `${currentY}px`;
-    
-    requestAnimationFrame(updateCursor);
 }
-updateCursor();
-
-// Cursor interaction states
-const interactiveElements = document.querySelectorAll('a, button, .project-card, .contact-item');
-interactiveElements.forEach(element => {
-    element.addEventListener('mouseenter', () => {
-        cursor.classList.add('hover');
-    });
-    
-    element.addEventListener('mouseleave', () => {
-        cursor.classList.remove('hover');
-    });
-});
 
 // Typing effect for tagline
 const typeWriter = () => {
@@ -251,10 +261,10 @@ const typeWriter = () => {
     let roleIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
-    
+
     function type() {
         const currentRole = roles[roleIndex];
-        
+
         if (isDeleting) {
             typingText.textContent = currentRole.substring(0, charIndex - 1);
             charIndex--;
@@ -262,7 +272,7 @@ const typeWriter = () => {
             typingText.textContent = currentRole.substring(0, charIndex + 1);
             charIndex++;
         }
-        
+
         if (!isDeleting && charIndex === currentRole.length) {
             isDeleting = true;
             setTimeout(type, 2000); // Pause at end
@@ -274,7 +284,7 @@ const typeWriter = () => {
             setTimeout(type, isDeleting ? 50 : 100);
         }
     }
-    
+
     type();
 };
 
