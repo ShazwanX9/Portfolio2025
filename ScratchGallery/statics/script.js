@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { url: './assets/html/Memory Game 2.html',      imgSrc: './assets/thumbnails/Memory Game 2.png',        title: 'Memory Game - Luthfiyah' },
         { url: './assets/html/Memory Game.html',        imgSrc: './assets/thumbnails/Memory Game.png',          title: 'Memory Game - Adelina & Safirah' },
         { url: './assets/html/Plant Vs Zombie.html',    imgSrc: './assets/thumbnails/Plant Vs Zombie.jpg',      title: 'Plant Vs Zombie - Abieman' },
-        { url: './assets/html/Platform shooter.html',   imgSrc: './assets/thumbnails/Platform shooter.png',     title: 'Platform shooter' },
+        { url: './assets/html/Platform shooter.html',   imgSrc: './assets/thumbnails/Platform Shooter.png',     title: 'Platform Shooter - Darwisy' },
         { url: './assets/html/Platformer Game 2.html',  imgSrc: './assets/thumbnails/Platformer Game 2.png',    title: 'Platformer Game - Luthfiyah' },
         { url: './assets/html/Platformer Game.html',    imgSrc: './assets/thumbnails/Platformer Game.png',      title: 'Platformer Game - Niveshaa' },
         { url: './assets/html/Pokemon.html',            imgSrc: './assets/thumbnails/Pokemon.png',              title: 'Pokemon - Aaraatanhaa' },
