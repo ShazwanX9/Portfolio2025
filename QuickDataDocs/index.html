@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Data Docs</title>
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="statics/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-file-alt"></i> Quick Data Docs</h1>
+            <p class="subtitle">Transform your Template documents with data from Excel and export as PDF</p>
+        </header>
+
+        <div class="workflow-container">
+            <!-- Step 1: Upload Template -->
+            <div class="workflow-step">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <h2>Upload Template</h2>
+                    <div class="step-status"></div>
+                </div>
+                <div class="step-content">
+                    <div class="upload-section">
+                        <div class="upload-area" id="wordUploadArea">
+                            <i class="fas fa-file-word"></i>
+                            <p>Drag and drop your Word file here or Choose File</p>
+                            <input type="file" id="wordFile" accept=".docx" style="display: none;">
+                        </div>
+                    </div>
+                    <div class="preview-section">
+                        <h3><i class="fas fa-eye"></i> Template Preview</h3>
+                        <div id="templatePreview" class="markdown-preview"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Upload Data -->
+            <div class="workflow-step">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <h2>Upload Data</h2>
+                    <div class="step-status"></div>
+                </div>
+                <div class="step-content">
+                    <div class="upload-section">
+                        <div class="upload-area" id="excelUploadArea">
+                            <i class="fas fa-file-excel"></i>
+                            <p>Drag and drop your Excel file here or Choose File</p>
+                            <input type="file" id="excelFile" accept=".xlsx,.xls" style="display: none;">
+                        </div>
+                    </div>
+                    <div class="preview-section">
+                        <h3><i class="fas fa-table"></i> Data Preview</h3>
+                        <div id="excelPreview" class="markdown-preview"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Step 3: Preview & Export -->
+            <div class="workflow-step">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <h2>Preview & Export</h2>
+                    <div class="step-status"></div>
+                </div>
+                <div class="step-content">
+                    <div class="data-controls">
+                        <div class="control-group">
+                            <label for="previewDropdown"><i class="fas fa-list"></i> Select Row:</label>
+                            <select id="previewDropdown">
+                                <option value="">Choose a row...</option>
+                            </select>
+                        </div>
+                        <button id="formatPreviewButton" class="control-button">
+                            <i class="fas fa-eye"></i>
+                            Preview
+                        </button>
+                    </div>
+                    <div class="preview-section">
+                        <h3><i class="fas fa-file-alt"></i> Formatted Preview</h3>
+                        <div id="formattedPreview" class="markdown-preview"></div>
+                    </div>
+                    <div class="export-controls">
+                        <button id="copyButton" class="control-button">
+                            <i class="fas fa-copy"></i>
+                            Copy
+                        </button>
+                        <button id="downloadButton" class="control-button">
+                            <i class="fas fa-download"></i>
+                            Download PDF
+                        </button>
+                        <button id="batchDownloadButton" class="control-button">
+                            <i class="fas fa-file-archive"></i>
+                            Download All ZIP
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <p>
+                    This application is limited to client-side development, which restricts formatting options. For a
+                    more customizable solution, including integration with Google Workspace or Microsoft, please contact
+                    me.
+                </p>
+                <div class="contact-info">
+                    <p class="subtitle">Shazwan</p>
+                    <p class="subtitle">
+                        <a href="mailto:ShazwanX9@gmail.com">ShazwanX9@gmail.com</a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="statics/script.js"></script>
+</body>
+
+</html>

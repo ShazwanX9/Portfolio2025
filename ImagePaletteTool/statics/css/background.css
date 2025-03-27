@@ -1,0 +1,150 @@
+/* Global background styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+    transition: background 0.5s ease;
+}
+
+/* Background with Gaussian blur effect */
+.gaussian-blur-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;  /* Behind the spinner but still in front of the content container */
+    opacity: 0.6;
+    background-color: #e0eafc;
+    filter: blur(30px);
+    transform: translateZ(0) scale(1.02);
+    background-size: cover;
+    background-position: center;
+    transition: background 0.5s ease, filter 0.5s ease, transform 0.5s ease;
+}
+
+/* Floating spinner styles */
+.main_spinner {
+    position: absolute;
+    z-index: -1; /* Behind the content but in front of the Gaussian background */
+    animation: 10s spin ease-in-out infinite; /* Slower spin for a more relaxing effect */
+    width: 300px; /* Increased size for a more spaced out effect */
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot {
+    position: absolute;
+    animation: 4s backspin ease-in-out infinite; /* Slower animation for relaxation */
+    box-shadow: 
+        0 150px white, 
+        0 -150px white, 
+        150px 0 white, 
+        -150px 0 white; /* Increased distance */
+    border-radius: 100%;
+    height: 75px; /* Larger dots for a softer visual */
+    width: 75px;
+}
+
+.dot_1 {
+    left: 0;
+}
+
+.dot_2 {
+    right: 0;
+}
+
+.center_mass {
+    position: absolute;
+    width: 40px; /* Increased size for a calmer, more substantial center mass */
+    height: 40px;
+    left: 50%;
+    top: 50%;
+    margin-top: -20px;
+    margin-left: -20px;
+    background: rgba(3, 103, 141, 0.6); /* Softer, more relaxed color */
+    border-radius: 50%;
+    box-shadow: 150px 0 rgba(3, 103, 141, 0.4), -150px 0 rgba(3, 103, 141, 0.4); /* Spread out more */
+}
+
+/* Content container styles */
+.container {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 10px 60px rgba(0, 0, 0, 0.75); /* Softer shadow */
+    margin: 2% 5%;
+    padding: 2%;
+    color: #fff;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 20%, transparent 30%),
+                linear-gradient(135, rgb(179, 179, 175, .15), rgba(255, 255, 255, 0.35));
+    border-radius: 15px;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+}
+
+/* Fade-in animations */
+.content-section h1, .content-section p {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards; /* Slow fade-in */
+}
+
+.content-section h1 {
+    font-size: 3.5em;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.content-section p {
+    font-size: 1.3em;
+    color: #fff;
+    margin-top: 10px;
+    line-height: 1.8;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 18px;
+    color: #ccc;
+    letter-spacing: 0.5px;
+}
+
+/* Keyframes for spinner animations */
+@keyframes spin {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.1); } /* Slight scale effect for a relaxing movement */
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes backspin {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(-180deg) scale(1.1); } /* Slight scale effect for relaxation */
+    100% { transform: rotate(-360deg) scale(1); }
+}
+
+/* Elegant fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

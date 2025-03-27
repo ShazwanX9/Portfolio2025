@@ -1,0 +1,401 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    color: #343a40;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 0.5rem;
+}
+
+header .subtitle {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.workflow-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.workflow-step {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    border: 1px solid #dee2e6;
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.step-number {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.step-header h2 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #212529;
+}
+
+.step-status {
+    flex-grow: 1;
+    text-align: right;
+    color: #28a745;
+}
+
+.upload-section {
+    text-align: center;
+}
+
+.upload-area {
+    border: 2px dashed #ced4da;
+    border-radius: 8px;
+    padding: 3rem;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.upload-area:hover {
+    background-color: #e9ecef;
+    border-color: #adb5bd;
+}
+
+.upload-area i {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 0.5rem;
+}
+
+.upload-area p {
+    font-size: 1rem;
+    color: #495057;
+}
+
+.preview-section {
+    margin-top: 1.5rem;
+}
+
+.preview-section h3 {
+    font-size: 1.1rem;
+    color: #343a40;
+    margin-bottom: 0.5rem;
+}
+
+.markdown-preview {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 1rem;
+    background-color: #fff;
+    max-height: 400px;
+    overflow-y: auto;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.markdown-preview table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+.markdown-preview th,
+.markdown-preview td {
+    border: 1px solid #dee2e6;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.markdown-preview th {
+    background-color: #f8f9fa;
+    color: #343a40;
+    font-weight: 600;
+}
+
+.markdown-preview tr:nth-child(even) {
+    background-color: #f1f3f5;
+}
+
+.markdown-preview tr:hover {
+    background-color: #e9ecef;
+}
+
+.data-controls {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.control-group label {
+    font-size: 1rem;
+    color: #495057;
+}
+
+.control-group select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.control-button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.control-button:hover {
+    background-color: #0056b3;
+}
+
+.export-controls {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+footer {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    margin-top: 50px; /* Add margin to separate from content */
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+footer p {
+    margin-bottom: 10px;
+    font-size: 0.9em; /* Slightly smaller font for the footer */
+    color: #555;
+}
+
+.subtitle {
+    font-weight: bold;
+    color: #333;
+    display: block; /* Ensure each subtitle is on a new line */
+}
+
+.contact-info {
+    margin-top: 15px; /* Separate contact info from main text */
+}
+
+footer a {
+    color: #007bff; /* Link color */
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Add these styles to your style.css */
+.workflow-step {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.workflow-step.slide-out {
+    opacity: 0;
+    transform: translateX(-50px); /* Slide out to the left */
+}
+
+.workflow-step.slide-in {
+    opacity: 0;
+    transform: translateX(50px); /* Slide in from the right */
+}
+
+/* Add these styles to your style.css */
+.tutorial-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.tutorial-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 600px;
+    text-align: left;
+}
+
+.tutorial-content h2 {
+    margin-bottom: 15px;
+}
+
+.tutorial-content p {
+    margin-bottom: 10px;
+}
+
+.tutorial-content button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.emphasis {
+    font-weight: 600; /* Slightly heavier font weight */
+    color: #333; /* Darker text color, if desired */
+}
+
+.emphasis code {
+    font-family: monospace;
+    background-color: #f0f0f0;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+.tutorial-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+.tutorial-content th, .tutorial-content td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.tutorial-content th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.tutorial-content tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Add transition for overlay and content */
+.tutorial-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.tutorial-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 600px;
+    text-align: left;
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Corrected: Use a class to trigger the animation */
+.tutorial-overlay.show .tutorial-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Add these styles for the table */
+.tutorial-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+.tutorial-content th, .tutorial-content td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.tutorial-content th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.tutorial-content tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.tutorial-button {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: #f9f9f9;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.tutorial-button:hover {
+    color: #0056b3;
+}

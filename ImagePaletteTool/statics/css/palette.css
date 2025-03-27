@@ -1,0 +1,140 @@
+/* Palette Section */
+.palette-section {
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    width: 100%;
+    margin: 40px auto;
+    text-align: center;
+    max-height: 650px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.palette-section:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Title Styling */
+.palette-section h2 {
+    font-size: 2.2em;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+/* Color Picker Section */
+.color-picker-section {
+    position: sticky;
+    padding: 20px;
+    max-width: 300px;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.3);
+    z-index: 10;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.color-picker-section:hover {
+    background-color: #f9f9f9;
+}
+
+/* Select box styling */
+.palette-section select {
+    padding: 12px 20px;
+    font-size: 1.2em;
+    border-radius: 10px;
+    outline: none;
+    width: 100%;
+    margin: 12px 0 24px;
+    transition: border 0.3s ease, background-color 0.3s ease;
+}
+
+.palette-section select:focus {
+    border-color: #3498db;
+    background-color: #eaf4ff;
+}
+
+/* Grid to display the color palette */
+.palette-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+/* Color Card */
+.color-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 150px;
+    position: relative;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.color-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Color Card Info */
+.color-info {
+    text-align: center;
+    font-size: 1.1em;
+    margin: 16px;
+    align-items: center;
+}
+
+.color-value {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: #333;
+}
+
+/* Copy Button */
+.copy-button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 1.1em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.copy-button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.copy-button:active {
+    transform: translateY(1px);
+}
+
+/* CSS Variables for better maintainability */
+:root {
+    --primary-color: #3498db;
+    --background-color: #f9f9f9;
+    --text-color: #333;
+    --border-radius: 12px;
+    --box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.color-card {
+    box-shadow: var(--box-shadow);
+}
+
+.copy-button {
+    background-color: var(--primary-color);
+}

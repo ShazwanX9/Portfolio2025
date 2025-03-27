@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaletteCraft</title>
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="statics/css/background.css">
+    <link rel="stylesheet" href="statics/css/upload.css">
+    <link rel="stylesheet" href="statics/css/palette.css">
+    <link rel="stylesheet" href="statics/css/tooltip.css">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/jellyTriangle.js"></script>
+</head>
+
+<body>
+    <div class="gaussian-blur-background"></div>
+    <div class="main_spinner">
+        <div class="dot dot_1"></div>
+        <div class="dot dot_2"></div>
+        <div class="center_mass"></div>
+    </div>
+    <div class="container">
+        <header>
+            <h1>PaletteCraft</h1>
+            <p>Extract and explore color palettes from your images</p>
+        </header>
+
+        <section class="content-section">
+            <!-- Upload Section -->
+            <div class="upload-section">
+                <div class="upload-part">
+                    <h2>Upload Your Image</h2>
+                    <div id="drop-area" class="drop-area" ondrop="handleDrop(event)" ondragover="allowDrop(event)"
+                        ondragenter="highlightDropArea(event)" ondragleave="removeHighlightDropArea(event)">
+                        <p>Drag and drop an image here, or click to choose an image</p>
+                        <input type="file" id="image-input" />
+                    </div>
+    
+                    <!-- Controls for color extraction -->
+                    <div class="controls">
+                        <label for="num-colors">Colors:</label>
+                        <input type="number" id="num-colors" value="5" min="1" max="99" oninput="validateInput(this)">
+                        <button id="extract-button">Extract</button>
+                    </div>
+                </div>
+
+                <!-- Image Preview Area -->
+                <div id="image-preview-container">
+                    <img id="image-preview" class="image-content" src="#" alt="Image Preview" style="display: none;">
+                    <canvas id="image-canvas" class="image-content" style="display: none;"></canvas>
+                    <p>Hover your image to choose specific color</p>
+                </div>
+            </div>
+
+            <!-- Palette Section -->
+            <div class="palette-section">
+                <div class="color-picker-section">
+                    <h2>Color Palette</h2>
+                    <select id="color-format">
+                        <option value="hex">Hex</option>
+                        <option value="hsl-norm">HSL 1</option>
+                        <option value="hsl-full">HSL 255</option>
+                        <option value="rgb-norm">RGB 1</option>
+                        <option value="rgb-full">RGB 255</option>
+                    </select>
+                </div>
+
+                <div id="palette-container" class="palette-grid"></div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 PaletteCraft - Crafted with Colors</p>
+        </footer>
+    </div>
+
+    <!-- Tooltip to show color information -->
+    <div id="tooltip"></div>
+
+    <!-- Loader Element (hidden by default) -->
+    <div id="loader" class="loader" style="display: none; flex-direction: column; align-items: center; justify-content: center;">
+        <div class="geometric-container">
+            <l-jelly-triangle id="jelly-triangle" size="30" speed="1.75" color="black"></l-jelly-triangle>
+            <div id="background-shape" class="background-shape"></div>
+        </div>
+        <p id="upload-text" class="upload-text">Uploading...</p>
+    </div>
+
+    <!-- Linking to your external JavaScript file -->
+    <script src="statics/js/event.js"></script>
+    <script src="statics/js/color.js"></script>
+    <script src="statics/js/tooltip.js"></script>
+    <script src="statics/js/imageprocessing.js"></script>
+    <script src="statics/js/paletteprocessing.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+/* Upload Section */
+.upload-section {
+    border-radius: 10px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Media Query for smaller screens (max-width: 768px) */
+@media (max-width: 768px) {
+    .upload-section {
+        flex-direction: column; /* Switch to column layout on smaller screens */
+        gap: 20px; /* Adjust the gap between items */
+    }
+}
+
+.upload-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.drop-area {
+    width: 100%;
+    padding: 50px 0;
+    margin: 20px auto;
+    border: 2px dashed #5dade2;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.drop-area:hover {
+    background-color: #f0f4f8;
+}
+
+.upload-section input[type="file"] {
+    display: none;
+}
+
+.controls {
+    margin-top: 20px;
+}
+
+.controls label {
+    font-size: 1.2em;
+    color: white;
+}
+
+.controls input[type="number"] {
+    padding: 8px 15px;
+    font-size: 1.1em;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-left: 10px;
+}
+
+.controls button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.controls button:hover {
+    background-color: #2980b9;
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.geometric-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-shape {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    opacity: 0;
+    transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+}
+
+.upload-text {
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+.image-preview-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-content {
+    max-width: 100%; /* Ensure the image doesn't overflow */
+    max-height: 400px; /* Limit the height */
+    margin: 0 auto;   /* Center horizontally */
+}

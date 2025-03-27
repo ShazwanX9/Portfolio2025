@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shazwan's creative digital portfolio showcasing software development, design, and innovative solutions.">
+    <meta name="keywords" content="developer, designer, portfolio, UX/UI design, AI solutions">
+    <link rel="icon" href="assets/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <title>Shazwan - Creative Developer</title>
+    <link rel="stylesheet" href="statics/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Parallax Background -->
+    <div class="parallax-bg"></div>
+    <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+    </div>
+
+    <!-- Commented out splash screen for a while to debug the website -->
+    <div class="splash-screen">
+        <video autoplay playsinline preload="auto">
+            <source src="assets/Shazwan.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button class="sound-toggle">
+            <i class="fas fa-volume-up"></i>
+        </button>
+    </div>
+
+    <div class="pixel-bg"></div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="./assets/favicon.png" alt="Shazwan Logo">
+                Shazwan
+            </div>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#artwork">Artwork</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Hi, I'm <span class="highlight">Shazwan</span></h1>
+                <p class="tagline">I'm a <span class="typing-text"></span></p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn primary">View My Work</a>
+                    <a href="#contact" class="btn secondary">Get in Touch</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-container">
+                    <img src="assets/profile.jpg" alt="Shazwan">
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Building more than just code, I craft scalable digital solutions with a user-first mindset. My full-stack expertise, combined with an entrepreneurial drive, fuels the creation of impactful and intuitive experiences. From AI-powered tools to cross-platform apps, I'm passionate about leveraging technology to solve real-world challenges and empower others in the tech community. Let's build something meaningful together.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <span class="number">3+</span>
+                        <span class="label">Years of Software Development</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number">25+</span>
+                        <span class="label">Projects Completed</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number">50+</span>
+                        <span class="label">Satisfied Users</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills">
+            <h2>My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Front-End Development & UI/UX Design</h3>
+                    <ul>
+                        <li>UI/UX Design & Prototyping</li>
+                        <li>Mobile App Development</li>
+                        <li>Performance Optimization</li>
+                        <li>Quality Assurance</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Back-End Development & AI Integration</h3>
+                    <ul>
+                        <li>AI Solutions</li>
+                        <li>Data Management</li>
+                        <li>API Development</li>
+                        <li>System Integration</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>System Maintenance & IT Support</h3>
+                    <ul>
+                        <li>Hardware Maintenance & Repair</li>
+                        <li>Operating Systems & Software Support</li>
+                        <li>Inventory & IT Support Management</li>
+                        <li>Security Systems & Infrastructure</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                <a href="../ImagePaletteTool/index.html" class="project-card" target="_blank">
+                    <img src="../ImagePaletteTool/Snapshots.png" alt="Screenshot of the Image Palette Tool interface">
+                    <div class="project-info">
+                        <h3>Image Palette Tool</h3>
+                        <p>Extract a cohesive color palette from any uploaded image. Provides hex codes and allows for easy copying and application in design projects.</p>
+                        <div class="project-tags">
+                            <span>Creative Direction</span>
+                            <span>Web Development</span>
+                            <span>Design Tools</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="../QuickDataDocs/index.html" class="project-card" target="_blank">
+                    <img src="../QuickDataDocs/Snapshots.png" alt="Screenshot of the QuickDataDocs interface">
+                    <div class="project-info">
+                        <h3>Quick Data Docs</h3>
+                        <p>Automated batch processing tool for converting multiple Word and Excel files to PDF format, streamlining document management workflows.</p>
+                        <div class="project-tags">
+                            <span>Automation</span>
+                            <span>Cloud Development</span>
+                            <span>File Processing</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="../ScratchGallery/index.html" class="project-card" target="_blank">
+                    <img src="../ScratchGallery/Snapshots.png" alt="Screenshot of the Scratch Gallery showcasing various games">
+                    <div class="project-info">
+                        <h3>Scratch Gallery</h3>
+                        <p>A curated collection of interactive games and animations created using Scratch, demonstrating fundamental programming concepts and creative storytelling.</p>
+                        <div class="project-tags">
+                            <span>Interactive Media</span>
+                            <span>Game Development</span>
+                            <span>Educational</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://github.com/ShazwanX9/QuoteCraft" class="project-card" target="_blank">
+                    <img src="assets/projects/QuoteCraft.png" alt="QuoteCraft">
+                    <div class="project-info">
+                        <h3>QuoteCraft</h3>
+                        <p>Generate visually appealing images featuring inspirational, motivational, or thought-provoking quotes.</p>
+                        <div class="project-tags">
+                            <span>AI Integration</span>
+                            <span>API Development</span>
+                            <span>Image Generation</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://github.com/ShazwanX9/SocketBlitz" class="project-card" target="_blank">
+                    <img src="assets/projects/SocketBlitz.png" alt="SocketBlitz">
+                    <div class="project-info">
+                        <h3>SocketBlitz</h3>
+                        <p>A cross-platform file transfer application built with Python and Kivy. Secure socket-based transfers between devices on the same network.</p>
+                        <div class="project-tags">
+                            <span>Network Security</span>
+                            <span>Mobile Development</span>
+                            <span>Socket Programming</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://github.com/ShazwanX9/Portfolio2024" class="project-card" target="_blank">
+                    <img src="assets/projects/Portfolio2024.png" alt="Portfolio2024.png">
+                    <div class="project-info">
+                        <h3>Portfolio2024</h3>
+                        <p>A responsive portfolio website optimized for mobile devices, with integrated QR code functionality for easy mobile access from desktop browsers.</p>
+                        <div class="project-tags">
+                            <span>Pioneering</span>
+                            <span>Web Development</span>
+                            <span>Showcase</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <section id="artwork" class="gallery">
+            <h2>Creative Works</h2>
+            <div class="gallery-grid">
+                <div class="artwork-card">
+                    <img src="assets/artworks/engineering.png" alt="Engineering Design">
+                    <div class="artwork-overlay">
+                        <h3>Engineering Design</h3>
+                        <p>Technical drawings and microcontroller projects</p>
+                    </div>
+                </div>
+                <div class="artwork-card">
+                    <img src="assets/artworks/3d.png" alt="3D Modeling">
+                    <div class="artwork-overlay">
+                        <h3>3D Modeling</h3>
+                        <p>3D product visualization and rendering</p>
+                    </div>
+                </div>
+                <div class="artwork-card">
+                    <img src="assets/artworks/vector.png" alt="Vector Art">
+                    <div class="artwork-overlay">
+                        <h3>Vector Art</h3>
+                        <p>Scalable vector graphics and illustrations</p>
+                    </div>
+                </div>
+                <div class="artwork-card">
+                    <img src="assets/artworks/pixel.png" alt="Pixel Art">
+                    <div class="artwork-overlay">
+                        <h3>Pixel Art</h3>
+                        <p>Retro-style pixel art and game assets</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Get in Touch</h2>
+            <div class="contact-content">
+                <a href="mailto:shazwanx9@gmail.com" class="contact-item" target="_blank">
+                    <i class="fas fa-envelope"></i>
+                    <span>shazwanx9@gmail.com</span>
+                </a>
+                <a href="https://wa.me/60183757146" class="contact-item" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>+60 18-3757 146</span>
+                </a>
+                <a href="https://github.com/ShazwanX9/" class="contact-item" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <span>ShazwanX9</span>
+                </a>
+                <a href="https://my.linkedin.com/in/ShazwanSharum" class="contact-item" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    <span>Shazwan</span>
+                </a>
+                <a href="https://www.google.com/maps?q=Negeri+Sembilan,+Malaysia" class="contact-item location-item" target="_blank">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Negeri Sembilan, Malaysia</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Shazwan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="statics/script.js"></script>
+</body>
+</html> 
